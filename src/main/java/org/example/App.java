@@ -1,4 +1,4 @@
-
+package org.example;
 import org.flywaydb.core.Flyway;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -160,7 +160,7 @@ public  class App {
             public static void deleteRecord (Connection connection) throws Exception {
                 String sql = "DELETE FROM product WHERE id = ? RETURNING id, description";
                 try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                    ps.setInt(1, 12);
+                    ps.setInt(1, 11);
                     try (ResultSet rs = ps.executeQuery()) {
                         while (rs.next()) {
                             int deletedId = rs.getInt("id");
